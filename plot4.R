@@ -6,7 +6,7 @@ DATE1 <- as.Date("1/2/2007", "%d/%m/%Y")
 DATE2 <- as.Date("2/2/2007", "%d/%m/%Y")
 
 subSetData <- subset(dataAll, as.Date(dataAll$Date, "%d/%m/%Y") >= DATE1 & as.Date(dataAll$Date, "%d/%m/%Y") <= DATE2)
-
+ 
 #str(subSetData)
 datetime <- strptime(paste(subSetData$Date, subSetData$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
 globalActivePower <- as.numeric(subSetData$Global_active_power)
