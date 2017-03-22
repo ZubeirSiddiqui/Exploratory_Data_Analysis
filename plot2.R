@@ -1,8 +1,11 @@
 setwd("C:/Users/zubeir/Desktop/DataScience/assignment4")
 dataFile <- "household_power_consumption.txt"
-data <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+dataAll <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
 
-subSetData <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
+DATE1 <- as.Date("1/2/2007", "%d/%m/%Y")
+DATE2 <- as.Date("2/2/2007", "%d/%m/%Y")
+
+subSetData <- subset(dataAll, as.Date(dataAll$Date, "%d/%m/%Y") >= DATE1 & as.Date(dataAll$Date, "%d/%m/%Y") <= DATE2)
 
 #str(subSetData)
 datetime <- strptime(paste(subSetData$Date, subSetData$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
